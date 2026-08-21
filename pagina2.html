@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inscripción a una actividad</title>
+</head>
+<body>
+
+<form action="inscripciones.html" method="post">
+
+    <h1>Formulario de Inscripcion Deportiva</h1>
+
+    <fieldset>
+        <legend> Información de la actividad seleccionada< </legend>
+
+        <label for="Actividad"> Actividad </label>
+        <input id="Actividad" type="text" value="Fútbol" disabled>
+        <br>
+        <label for="Lugar"> Lugar </label>
+        <input id="Lugar" type="text" value="Cancha de la UNCA" disabled>
+        <br>
+        <label for="Dia"> Dia </label>
+        <input id="Dia" type="text" value="Lunes y Viernes" disabled>
+        <br>
+        <label for="Horario"> Horario </label>
+        <input id="Horario" type="text" value=" 18:00 - 20:00" disabled>
+        <br>
+
+    </fieldset>
+
+    <fieldset>
+        <legend> Datos del participante </legend>
+        <label for="ApellidoNombre"> Apellido y Nombre: </label>
+        <input id="ApellidoNombre" type="text"  maxlength="100" required>
+        <br>
+        <label for="dni"> DNI: </label>
+        <input id="dni" type="number"  maxlength="8" required>
+        <br>
+        <label for="fecha"> Fecha de Nacimiento: </label>
+        <input id="fecha" type="date">
+        <br>
+        <label for="correo"> Correo: </label>
+        <input id="correo" type="email">
+        <br>
+        <label for="telefono"> Teléfono: </label>
+        <input id="telefono" type="tel">
+        <br>
+        <label>Sexo:</label><br>
+        <input type="radio" name="sexo" value="femenino">
+        <label>Femenino</label>
+
+        <input type="radio" name="sexo" value="masculino">
+        <label>Masculino</label>
+
+        <input type="radio" name="sexo" value="no_binario">
+        <label>No binario</label>
+    </fieldset>
+
+    <fieldset>
+
+        <legend> Información Deportiva </legend>
+        <label for="nivel">Nivel:</label>
+        <select id="nivel">
+        <option>Inicial</option>
+        <option>Intermedio</option>
+        <option>Avanzado</option>
+        </select>
+
+        <br>
+        <label>¿Posee experiencia previa?:</label><br>
+        <input type="radio" name="experiencia" value="Si">
+        <label>Si</label>
+        <input type="radio" name="experiencia" value="No">
+        <label>No</label>
+
+        <br>
+        <label for="observaciones">Observaciones:</label>
+        <textarea id="observaciones"></textarea>
+
+    </fieldset>
+
+    <fieldset>
+
+        <label for="condiciones"> Acepto las condiciones de inscripción.</label>
+        <input type="checkbox" id="condiciones" required>
+
+    </fieldset>
+
+    <fieldset>
+
+    <br>
+    <button type="submit">Aceptar</button>
+    <button type="reset">Cancelar</button>
+
+    </fieldset>
+    </form>
+
+
+</body>
+</html>
