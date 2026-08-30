@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscripción a una actividad</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>
+    <header>
+        <img src="../png/DD.png" alt="Logo" class="logo">
+            <h1>DEPORTES UNCA</h1>
+            <p>Inscripción a una actividad deportiva</p>
+    </header>
+
+    <nav id="menu">
+        <ul>
+            <li> <a href="pagina1.html"> Inicio </a></li>
+            <li> <a href="#"> Registrarse </a></li>
+            <li> <a href="pagina1.html#actividades"> Actividades Deportivas </a></li>
+            <li> <a href="pagina2.html"> Inscribirse a una Actividad </a></li>
+            <li> <a href="inscripciones.html"> Mis Inscripciones </a></li>
+            <li> <a href="#"> Cancelar Inscripción </a></li>
+            <li> <a href="#"> Iniciar Sesión </a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <div class="row justify-content-center">
+            <div  class="col-lg-8 col-md-10">
+                <div class="card">
+                    <h5 class="card-header">INFORMACIÓN DE LA ACTIVIDAD SELECCIONADA</h5>
+                    <div class="card-body">
+                        <p><strong>Lugar:</strong> Cancha de la UNCA </p>
+                        <p><strong>Días de práctica:</strong> Lunes y Viernes </p>
+                        <p><strong>Horario asignado:</strong> 18:00 - 20:00 hs.</p>
+                    </div>
+                </div>
+
+                <form action="inscripciones.html" method="post" class="formulario">
+
+                      <fieldset class="mb-4">
+                          <legend>DATOS PERSONALES DEL PARTICIPANTE</legend>
+
+                          <div class="mb-3">
+                            <label for="ApellidoNombre" class="form-label" > Apellido y Nombre:</label>
+                            <input type="text" maxlength="100" required class="form-control" id="ApellidoNombre">
+                          </div>
+
+                          <div class="mb-3">
+                            <label for="dni" class="form-label" > DNI:</label>
+                            <input type="number" inputmode="numeric" pattern="[0-9]{8}" required class="form-control" id="dni">
+                          </div>
+
+                          <div class="mb-3">
+                            <label class="form-label" for="fecha"> Fecha de Nacimiento: </label>
+                            <input id="fecha" type="date" class="form-control">
+                          </div>
+
+                          <div class="mb-3">
+                            <label class="form-label" for="correo"> Correo:</label>
+                            <input id="correo" type="email" class="form-control">
+                          </div>
+
+                          <div class="mb-3">
+                            <label class="form-label" for="telefono" > Teléfono: </label>
+                            <input class="form-control" id="telefono" type="tel" >
+                          </div>
+
+                          <div class="grupo-radio">
+                                    <label class="form-label">Sexo:</label>
+                                    <div class="radios_en_linea">
+                                        <div class="opcion-radio">
+                                            <input type="radio" id="sexo_m" name="sexo" value="Masculino">
+                                            <label for="sexo_m">Masculino</label>
+                                        </div>
+                                        <div class="opcion-radio">
+                                            <input type="radio" id="sexo_f" name="sexo" value="Femenino">
+                                            <label for="sexo_f">Femenino</label>
+                                        </div>
+                                        <div class="opcion-radio">
+                                            <input type="radio" id="sexo_nb" name="sexo" value="No binario">
+                                            <label for="sexo_nb">No binario</label>
+                                        </div>
+                                    </div>
+                          </div>
+
+                     </fieldset>
+
+                      <fieldset class="mb-4">
+                            <legend class="fw-bold mb-3"> INFORMACIÓN DEPORTIVA</legend>
+
+                            <div class="mb-3">
+                                <label for="nivel" class="form-label fw-bold">Nivel:</label>
+                                <select id="nivel" name="nivel_deportivo" class="form-select">
+                                    <option value="inicial">Inicial</option>
+                                    <option value="intermedio">Intermedio</option>
+                                    <option value="avanzado">Avanzado</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label fw-bold d-block">¿Posee experiencia previa?:</label>
+
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="experiencia" id="exp_si" value="Si" required>
+                                    <label class="form-check-label" for="exp_si">Sí</label>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="experiencia" id="exp_no" value="No">
+                                    <label class="form-check-label" for="exp_no">No</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="observaciones" class="form-label fw-bold">Observaciones:</label>
+                                <textarea id="observaciones" name="observaciones" class="form-control" rows="3" placeholder="Indique alguna aclaración médica o comentario..."></textarea>
+                            </div>
+                        </fieldset>
+
+                        <div class="form-check mb-4">
+                            <input class="form-check-input" type="checkbox" id="condiciones" name="acepta_condiciones" required>
+                            <label class="form-check-label" for="condiciones">
+                                Acepto las condiciones de inscripción y el reglamento.
+                            </label>
+                        </div>
+
+                        <div class="d-flex justify-content-center gap-3">
+                            <button type="submit" class="btn-aceptar">Aceptar</button>
+                            <button type="reset" class="btn-cancelar">Cancelar</button>
+                        </div>
+               </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Deportes Unca
+        <br>
+            Copyright &copy; 2026 Todos los Derechos Reservados.
+        </p>
+    </footer>
+
+    </body>
+    </html>

@@ -1,0 +1,238 @@
+/* selector de etiqueta */
+
+/* Encabezado */
+header{
+    background-color: rgb(128 152 82 / 0.75);
+    border-bottom: 2px solid white; /* Línea blanca debajo del header */
+    text-align: center;
+    color: #ffffff;
+    padding: 30px;
+    font-size: 1rem;
+}
+header p{
+    font-style: italic;
+}
+
+h1{
+    margin: 10px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.logo {
+    width: 150px;         /* Ajusta el ancho deseado */
+    height: auto;        /* Mantiene la proporción */
+    border-radius: 50%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #afbd87;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h3{
+    font-size: 25px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+
+/* Recurso de W3schools*/
+/* MENÚ DE NAVEGACIÓN */
+
+
+#menu ul {
+    list-style-type: none; /* Elimina las viñetas */
+    background-color: transparent;
+    padding: 0;
+    display: flex;  /* Alinea los elementos en horizontal */
+    flex-wrap: wrap;   /* Responsivo para celulares, Permite que los elementos pasen a la siguiente línea si no entran */
+    justify-content: center;
+    border-bottom: 2px solid white;
+    margin-bottom: 20px; /* Ajusta a 15px o 20px según qué tan chiquito lo quieras */
+
+}
+
+#menu li {
+    margin: 0;
+    padding: 0; /* Sin padding en el li para que el enlace ocupe todo el espacio */
+}
+
+#menu a {
+  display: block;  /* Transforma el enlace en bloque para que toda su caja sea clickeable */
+  color: white; /* lo convierto en bloque */
+  padding: 14px 16px;
+  text-decoration: none; /* Quita el subrayado azul nativo de los enlaces */
+  font-weight: bold;
+  font-size: 1.1rem; /* Tamaño de letra adaptable y legible */
+}
+
+nav li:not(:last-child) { /* Aplica la línea divisoria a todos los elementos */
+    border-right: 1px solid #ffffff;
+}
+
+/* Al pasar el mouse por encima del enlace */
+#menu a:hover {
+  background-color: rgb(70 96 3 / 0.75);
+}
+
+
+                    /* CONTENIDO PRINCIPAL */
+.container {
+    padding:30px;
+    flex: 1;
+    background-color: #e6edd5;
+}
+
+.cartel-titulo {
+    background-color: #e2f0d9;
+    border: 2px solid #466003;
+    border-radius: 6px;
+    padding: 12px 20px;
+    margin-bottom: 20px;              /* Separación con la primera tarjeta de abajo */
+
+}
+
+.cartel-titulo h2 {
+    margin: 0;
+    color: #2b3d02;                   /* Verde oscuro institucional */
+    font-size: 16px;                  /* Tamaño más elegante y no tan tosco */
+    font-weight: bold;                 /* En negrita */
+    letter-spacing: 1px;            /* Espaciado elegante entre letras */
+    text-transform: uppercase;        /* Asegura mayúsculas limpias */
+    text-align: center;               /* Centra el texto */
+}
+
+/* selector de clase */
+
+.art {
+    background-color: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    padding: 30px;
+    margin: 0 0 20px 0;
+    width: 100%;   /*Ocupa exactamente el ancho del padre*/
+}
+
+#actividades{
+    max-width: 100%;
+    margin: 0 auto;
+    padding:20px;
+}
+                    /* FORMULARIO PAGINA 2 */
+.formulario{
+    background-color: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top:20px ;           /* 0 a los costados para no desfasarse */
+    width: 100%;         /* Ocupa el mismo ancho exacto que la card de arriba */
+}
+
+legend {
+    font-size: 1.15rem;
+    font-weight: bold;
+    color: #2b3d02;
+}
+
+                    /* GENERO PAGINA 2 */
+.grupo-radio {
+    margin-bottom: 10px;
+}
+
+/* Radios en una sola línea */
+.radios_en_linea {
+    display: flex;
+    flex-wrap: wrap; /* Responsivo: si no entran, bajan solos sin romperse */
+    gap: 15px; /* Distancia óptima entre opciones */
+}
+.opcion-radio {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+                /* BOTONES PAGINA 2 */
+
+.btn-aceptar {
+    background-color: #466003;
+    color: #ffffff;
+    padding: 8px 24px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+}
+
+.btn-aceptar:hover {
+    background-color: #344802;
+    color: #ffffff;
+}
+
+/* Botón Cancelar Gris */
+.btn-cancelar {
+    background-color: #e0e0e0;
+    color: #333333;
+    padding: 8px 24px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+}
+
+.btn-cancelar:hover {
+    background-color: #cccccc;
+}
+
+
+                    /*TABLA*/
+/* Estado */
+.señal-activa {
+    background-color: #2e7d32;
+    color: #ffffff;
+    font-size: 0.85rem;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+/* Botón "Cancelar inscripción" */
+.cancelar-tabla {
+    color: #c0392b;               /* Letra roja */
+    border: 1px solid #c0392b;    /* Borde fino rojo */
+    background-color: transparent;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    display: inline-block; /*permite que un elemento se alinee en la misma línea que otros elementos adyacentes*/
+    text-decoration: none
+}
+
+/* Efecto hover al pasar el mouse por el botón Cancelar */
+.cancelar-tabla:hover {
+    background-color: #c0392b;    /* Se llena de rojo */
+    color: #ffffff;               /* Texto en blanco */
+}
+
+
+footer {
+    background-color: rgb(128 152 82 / 0.75);
+    text-align: center;
+    color: #000000;
+    padding: 20px 30px;
+    font-size: 20px;
+    margin-top: 20px; /* Ajusta a 15px o 20px según qué tan chiquito lo quieras */
+}
+
+footer p {
+    margin: 0;
+}
+
+
+
+
+
+
+
