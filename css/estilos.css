@@ -231,6 +231,18 @@ footer p {
 }
 
 
+/* JS  */
+
+.card-header-unca {
+    background-color: #466003;      /* Verde institucional */
+    color: #ffffff;                 /* Texto blanco */
+    font-weight: bold;
+    font-size: 1.05rem;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #344802;
+}
+
+
 
 
 

@@ -40,97 +40,27 @@
 
                 <form action="inscripciones.html" method="post" class="formulario">
 
-                      <fieldset class="mb-4">
-                          <legend>DATOS PERSONALES DEL PARTICIPANTE</legend>
-
-                          <div class="mb-3">
-                            <label for="ApellidoNombre" class="form-label" > Apellido y Nombre:</label>
-                            <input type="text" maxlength="100" required class="form-control" id="ApellidoNombre">
-                          </div>
-
-                          <div class="mb-3">
-                            <label for="dni" class="form-label" > DNI:</label>
-                            <input type="number" inputmode="numeric" pattern="[0-9]{8}" required class="form-control" id="dni">
-                          </div>
-
-                          <div class="mb-3">
-                            <label class="form-label" for="fecha"> Fecha de Nacimiento: </label>
-                            <input id="fecha" type="date" class="form-control">
-                          </div>
-
-                          <div class="mb-3">
-                            <label class="form-label" for="correo"> Correo:</label>
-                            <input id="correo" type="email" class="form-control">
-                          </div>
-
-                          <div class="mb-3">
-                            <label class="form-label" for="telefono" > Teléfono: </label>
-                            <input class="form-control" id="telefono" type="tel" >
-                          </div>
-
-                          <div class="grupo-radio">
-                                    <label class="form-label">Sexo:</label>
-                                    <div class="radios_en_linea">
-                                        <div class="opcion-radio">
-                                            <input type="radio" id="sexo_m" name="sexo" value="Masculino">
-                                            <label for="sexo_m">Masculino</label>
-                                        </div>
-                                        <div class="opcion-radio">
-                                            <input type="radio" id="sexo_f" name="sexo" value="Femenino">
-                                            <label for="sexo_f">Femenino</label>
-                                        </div>
-                                        <div class="opcion-radio">
-                                            <input type="radio" id="sexo_nb" name="sexo" value="No binario">
-                                            <label for="sexo_nb">No binario</label>
-                                        </div>
-                                    </div>
-                          </div>
-
-                     </fieldset>
-
-                      <fieldset class="mb-4">
-                            <legend class="fw-bold mb-3"> INFORMACIÓN DEPORTIVA</legend>
-
-                            <div class="mb-3">
-                                <label for="nivel" class="form-label fw-bold">Nivel:</label>
-                                <select id="nivel" name="nivel_deportivo" class="form-select">
-                                    <option value="inicial">Inicial</option>
-                                    <option value="intermedio">Intermedio</option>
-                                    <option value="avanzado">Avanzado</option>
-                                </select>
+                    <fieldset class="mb-4 p-3 border rounded bg-light">
+                        <legend class="text-center">CANTIDAD DE PARTICIPANTES</legend>
+                        <div class="row align-items-end g-3">
+                            <div class="col-sm-6">
+                                <label for="cantidadParticipantes" class="form-label fw-bold">Número de personas a inscribir:</label>
+                                <input type="number" id="cantidadParticipantes" class="form-control" min="1" max="10" value="1">
                             </div>
-
-                            <div class="mb-3">
-                                <label class="form-label fw-bold d-block">¿Posee experiencia previa?:</label>
-
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="experiencia" id="exp_si" value="Si" required>
-                                    <label class="form-check-label" for="exp_si">Sí</label>
-                                </div>
-
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="experiencia" id="exp_no" value="No">
-                                    <label class="form-check-label" for="exp_no">No</label>
-                                </div>
+                            <div class="col-sm-6">
+                                <button type="button" id="btnGenerar" class="btn btn-aceptar w-100">
+                                    Generar participantes
+                                </button>
                             </div>
-
-                            <div class="mb-3">
-                                <label for="observaciones" class="form-label fw-bold">Observaciones:</label>
-                                <textarea id="observaciones" name="observaciones" class="form-control" rows="3" placeholder="Indique alguna aclaración médica o comentario..."></textarea>
-                            </div>
-                        </fieldset>
-
-                        <div class="form-check mb-4">
-                            <input class="form-check-input" type="checkbox" id="condiciones" name="acepta_condiciones" required>
-                            <label class="form-check-label" for="condiciones">
-                                Acepto las condiciones de inscripción y el reglamento.
-                            </label>
                         </div>
+                    </fieldset>
 
-                        <div class="d-flex justify-content-center gap-3">
-                            <button type="submit" class="btn-aceptar">Aceptar</button>
-                            <button type="reset" class="btn-cancelar">Cancelar</button>
-                        </div>
+                    <div id="contenedorParticipantes" class="mb-4"></div>
+                        <!-- JavaScript -->
+                    <div class="d-flex justify-content-center gap-3">
+                        <button type="submit" class="btn-aceptar">Aceptar</button>
+                        <button type="reset" class="btn-cancelar">Cancelar</button>
+                    </div>
                </form>
             </div>
         </div>
@@ -143,5 +73,7 @@
         </p>
     </footer>
 
-    </body>
-    </html>
+    <script src="../js/validaciones.js"></script>
+
+</body>
+</html>
