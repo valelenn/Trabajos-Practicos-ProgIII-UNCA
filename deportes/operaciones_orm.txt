@@ -1,0 +1,103 @@
+TRABAJO PRÁCTICO N° VI - PROGRAMACIÓN III
+PUNTO 4: OPERACIONES BÁSICAS CON EL ORM EN LA CONSOLA SHELL DE DJANGO
+
+--- IMPORTACIÓN PREVIA ---
+>>> from reservas.models import ActividadDeportiva, Horario, Inscripcion
+>>> import datetime
+
+
+1. Crear y guardar al menos tres actividades deportivas.
+--------------------------------------------------------------------------------
+Comandos:
+>>> act1 = ActividadDeportiva.objects.create(nombre="Vóley", descripcion="Entrenamiento y partidos recreativos", lugar="Polideportivo Universitario", cupo=20)
+>>> act2 = ActividadDeportiva.objects.create(nombre="Básquet", descripcion="Técnica individual y táctica de equipo", lugar="Cancha Cubierta Central", cupo=15)
+>>> act3 = ActividadDeportiva.objects.create(nombre="Natación", descripcion="Estilos libre, espalda y resistencia", lugar="Natatorio Climatizado", cupo=12)
+
+Respuesta:
+(Objetos creados y persistidos correctamente en la base de datos).
+
+2. Crear y guardar al menos dos horarios para una de las actividades deportivas.
+--------------------------------------------------------------------------------
+Comandos:
+>>> hor1 = Horario.objects.create(actividad=act1, dia="LUN", hora_inicio=datetime.time(18, 0), hora_fin=datetime.time(20, 0))
+>>> hor2 = Horario.objects.create(actividad=act1, dia="MIE", hora_inicio=datetime.time(18, 0), hora_fin=datetime.time(20, 0))
+
+Respuesta:
+(Horarios asociados a la actividad 'Vóley' creados y persistidos exitosamente).
+
+3. Crear y guardar al menos tres inscripciones asociadas a los horarios disponibles.
+--------------------------------------------------------------------------------
+Comandos:
+>>> ins1 = Inscripcion.objects.create(nombre="Carlos", apellido="Gómez", dni="42111222", horario=hor1, estado="Activa")
+>>> ins2 = Inscripcion.objects.create(nombre="Lucía", apellido="Martínez", dni="43555666", horario=hor1, estado="Activa")
+>>> ins3 = Inscripcion.objects.create(nombre="Mateo", apellido="Fernández", dni="44999000", horario=hor2, estado="Activa")
+
+Respuesta:
+(Inscripciones vinculadas a los horarios de Lunes y Miércoles registradas con éxito).
+
+4. Consultar y mostrar todas las actividades deportivas registradas.
+--------------------------------------------------------------------------------
+Comando:
+>>> ActividadDeportiva.objects.all()
+
+Respuesta:
+<QuerySet [<ActividadDeportiva: futbol>, <ActividadDeportiva: Vóley>, <ActividadDeportiva: Básquet>, <ActividadDeportiva: Natación>]>
+
+5. Consultar y mostrar los horarios correspondientes a una actividad deportiva determinada.
+--------------------------------------------------------------------------------
+Comandos:
+>>> voley = ActividadDeportiva.objects.get(nombre="Vóley")
+>>> voley.horarios.all()
+
+Respuesta:
+<QuerySet [<Horario: Vóley - LUN (18:00:00 a 20:00:00)>, <Horario: Vóley - MIE (18:00:00 a 20:00:00)>]>
+
+6. Filtrar y mostrar las inscripciones que se encuentren en estado Activa.
+--------------------------------------------------------------------------------
+Comando:
+>>> Inscripcion.objects.filter(estado="Activa")
+
+Respuesta:
+<QuerySet [<Inscripcion: Gómez, Carlos - Vóley [Activa]>, <Inscripcion: Martínez, Lucía - Vóley [Activa]>, <Inscripcion: Fernández, Mateo - Vóley [Activa]>]>
+
+7. Consultar las inscripciones correspondientes a un horario determinado.
+--------------------------------------------------------------------------------
+Comandos:
+>>> horario_lunes = Horario.objects.get(id=hor1.id)
+>>> horario_lunes.inscripciones.all()
+
+Respuesta:
+<QuerySet [<Inscripcion: Gómez, Carlos - Vóley [Activa]>, <Inscripcion: Martínez, Lucía - Vóley [Activa]>]>
+
+8. Modificar el cupo de una actividad deportiva.
+--------------------------------------------------------------------------------
+Comandos:
+>>> voley = ActividadDeportiva.objects.get(nombre="Vóley")
+>>> voley.cupo = 30
+>>> voley.save()
+>>> ActividadDeportiva.objects.get(nombre="Vóley").cupo
+
+Respuesta:
+30
+
+9. Cambiar el estado de una inscripción de Activa a Cancelada.
+--------------------------------------------------------------------------------
+Comandos:
+>>> ins_a_cancelar = Inscripcion.objects.get(dni="42111222")
+>>> ins_a_cancelar.estado = "Cancelada"
+>>> ins_a_cancelar.save()
+>>> Inscripcion.objects.get(dni="42111222").estado
+
+Respuesta:
+'Cancelada'
+
+10. Eliminar una inscripción de la base de datos.
+--------------------------------------------------------------------------------
+Comandos:
+>>> ins_a_borrar = Inscripcion.objects.get(dni="44999000")
+>>> ins_a_borrar.delete()
+>>> Inscripcion.objects.all()
+
+Respuesta:
+(1, {'reservas.Inscripcion': 1})
+<QuerySet [<Inscripcion: Gómez, Carlos - Vóley [Cancelada]>, <Inscripcion: Martínez, Lucía - Vóley [Activa]>]>
