@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Actividad</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+    <!-- Barra de navegación con enlaces dinámicos -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'reservas:lista_actividades' %}">Deportes UNCA</a>
+            <div class="navbar-nav">
+                <a class="nav-link" href="{% url 'reservas:lista_actividades' %}">Actividades</a>
+                <a class="nav-link" href="{% url 'reservas:agregar_actividad' %}">Nueva Actividad</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h3 class="mb-0">{{ actividad.nombre }}</h3>
+            </div>
+            <div class="card-body">
+                <p><strong>Descripción:</strong> {{ actividad.descripcion|default:"Sin descripción registrada." }}</p>
+                <p><strong>Lugar de realización:</strong> {{ actividad.lugar }}</p>
+                <p><strong>Cupo total:</strong> {{ actividad.cupo }} participantes</p>
+
+                <h5 class="mt-4">Horarios disponibles asociados:</h5>
+                <ul>
+                    <!-- Consulta la relación inversa definida en models.py -->
+                    {% for horario in actividad.horarios.all %}
+                        <li>{{ horario.get_dia_display|default:horario.dia }}: {{ horario.hora_inicio }} a {{ horario.hora_fin }}</li>
+                    {% empty %}
+                        <li class="text-muted">No posee horarios cargados actualmente.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="card-footer">
+                <a href="{% url 'reservas:lista_actividades' %}" class="btn btn-secondary">Volver al Listado</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
